@@ -14,6 +14,7 @@ hqDefine('registration/js/password', [
 
     var passwordModel = function () {
         var self = {};
+        self.minimumZxcvbnScore = initialPageData.get('minimumZxcvbnScore');
         self.penalizedWords = ['dimagi', 'commcare', 'hq', 'commcarehq'];
         self.password = ko.observable();
         self.strength = ko.computed(function () {
@@ -23,9 +24,9 @@ hqDefine('registration/js/password', [
             return 0;
         });
         self.color = ko.computed(function () {
-            if (self.strength() < 1) {
+            if (self.strength() < self.minimumZxcvbnScore - 1) {
                 return "text-error text-danger";
-            } else if (self.strength() == 1) {
+            } else if (self.strength() < self.minimumZxcvbnScore) {
                 return "text-warning";
             } else {
                 return "text-success";
@@ -34,16 +35,16 @@ hqDefine('registration/js/password', [
         self.passwordHelp = ko.computed(function () {
             if (!self.password()) {
                 return '';
-            } else if (self.strength() < 1) {
+            } else if (self.strength() < self.minimumZxcvbnScore - 1) {
                 return gettext("Your password is too weak! Try adding numbers or symbols!");
-            } else if (self.strength() === 1) {
+            } else if (self.strength() < self.minimumZxcvbnScore) {
                 return gettext("Your password is almost strong enough! Try adding numbers or symbols!");
             } else {
                 return gettext("Good Job! Your password is strong!");
             }
         });
         self.passwordSufficient = ko.computed(function () {
-            return self.strength() > 1;
+            return self.strength() >= self.minimumZxcvbnScore;
         });
         return self;
     };
