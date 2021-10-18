@@ -200,7 +200,9 @@ idna==2.10
     #   email-validator
     #   requests
 importlib-metadata==3.4.0
-    # via jsonschema
+    # via
+    #   jsonschema
+    #   markdown
 intervaltree==3.1.0
     # via ddtrace
 iso8601==0.1.13
@@ -249,7 +251,7 @@ lxml==4.6.3
     #   xmlsec
 mako==1.1.3
     # via alembic
-markdown==2.2.1
+markdown==3.3.4
     # via -r base-requirements.in
 markupsafe==1.1.1
     # via

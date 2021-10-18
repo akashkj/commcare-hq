@@ -258,6 +258,7 @@ importlib-metadata==2.0.0
     # via
     #   flake8
     #   jsonschema
+    #   markdown
     #   pep517
 intervaltree==3.1.0
     # via ddtrace
@@ -318,7 +319,7 @@ mako==1.1.3
     # via alembic
 mando==0.6.4
     # via radon
-markdown==2.2.1
+markdown==3.3.4
     # via -r base-requirements.in
 markupsafe==1.1.1
     # via
