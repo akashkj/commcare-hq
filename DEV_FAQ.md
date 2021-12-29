@@ -1,7 +1,7 @@
 # Developer FAQ
 
 This is a starting point for troubleshooting issues that frequently occur once your local environment
-is set up and you've started working on a significant code change.
+is set up and you've started working on a significant code  change.
 
 ## General Advice
 
